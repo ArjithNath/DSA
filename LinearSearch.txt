@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+
+int LinearSearchIterative(int arr[],int size,int target){
+	int i;
+	for(i=0;i<size;i++){
+		if(arr[i]==target)
+		return i;
+	}
+	return -1;
+}
+
+int main(){
+	int arr[25];
+	int i,n;
+	int point;
+	cout<<"\nWelcome to Linear Search Iterative";
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	cout<<"\nEnter the number of elements = ";
+	cin>>n;
+	cout<<"\nEnter the elements below in ASCENDING ORDER\n";
+	for(i=0;i<n;i++){
+	    cout<<"\nElement "<<i+1<<" =";
+	    cin>>arr[i];
+	}
+	cout<<"\nSelect the element to search from the given Array\n";
+	for(i=0;i<n;i++){
+	    cout<<arr[i]<<"\t";
+	}
+	cout<<"\nEnter the Element = ";
+	cin>>point;
+	int index=LinearSearchIterative(arr,n,point);
+	
+	  if(index == -1){
+	    cout<<"\nTarget not Found";
+      }
+	  else{
+	    cout<<"\nTarget is Found at Location <<"<<index<<">>";
+     }
+	return 0;    
+}
