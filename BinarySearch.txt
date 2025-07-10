@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+
+int BinarySearchIterative(int array[],int size,int target){ 
+	int low = 0;
+	int high = size-1;
+	int num=0;
+	while(low<=high){
+	    	num++; 
+		int mid=(low+high)/2;      //to avoid overflow
+		 	 if(array[mid] == target){
+		 	  cout<<"\nThe value of count = "<<num;
+			  return mid;
+		 	 }
+			 else if(array[mid]<target){
+			  low=mid+1;         //searches right half of the array
+			 }
+			 else{
+			  high=mid-1;
+			 }
+	}
+	
+	return -1;
+	
+}
+
+int main(){
+	int arr[25];
+	int i,n;
+	int point;
+	cout<<"\nWelcome to Binary Search Iterative";
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	cout<<"\nEnter the number of elements = ";
+	cin>>n;
+	cout<<"\nEnter the elements below in ASCENDING ORDER\n";
+	for(i=0;i<n;i++){
+	    cout<<"\nElement "<<i+1<<" =";
+	    cin>>arr[i];
+	}
+	cout<<"\nSelect the element to search from the given Array\n";
+	for(i=0;i<n;i++){
+	    cout<<arr[i]<<"\t";
+	}
+	cout<<"\nEnter the Element = ";
+	cin>>point;
+	int index=BinarySearchIterative(arr,n,point);
+	
+	  if(index == -1){
+	    cout<<"\nTarget not Found";
+      }
+	  else{
+	    cout<<"\nTarget is Found at Location <<"<<index<<">>";
+     }
+	return 0;    
+}
